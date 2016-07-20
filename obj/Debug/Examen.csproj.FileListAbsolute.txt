@@ -1,1 +1,2 @@
 c:\users\ricardo\documents\visual studio 2012\Projects\Examen\Examen\bin\Debug\Examen.exe.config
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\bin\Debug\Examen.exe.config
