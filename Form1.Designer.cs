@@ -44,6 +44,7 @@
             this.access.TabIndex = 0;
             this.access.Text = "Acceder";
             this.access.UseVisualStyleBackColor = true;
+            this.access.Click += new System.EventHandler(this.access_Click);
             // 
             // pass
             // 

@@ -67,6 +67,7 @@
             this.estadistica.TabIndex = 0;
             this.estadistica.Text = "Estadísticas";
             this.estadistica.UseVisualStyleBackColor = true;
+            this.estadistica.Click += new System.EventHandler(this.estadistica_Click);
             // 
             // asignatura
             // 
@@ -86,6 +87,7 @@
             this.tema.TabIndex = 0;
             this.tema.Text = "Temas";
             this.tema.UseVisualStyleBackColor = true;
+            this.tema.Click += new System.EventHandler(this.tema_Click);
             // 
             // reactivo
             // 
@@ -95,6 +97,7 @@
             this.reactivo.TabIndex = 0;
             this.reactivo.Text = "Reactivos";
             this.reactivo.UseVisualStyleBackColor = true;
+            this.reactivo.Click += new System.EventHandler(this.reactivo_Click);
             // 
             // curso
             // 
@@ -104,6 +107,7 @@
             this.curso.TabIndex = 0;
             this.curso.Text = "Cursos";
             this.curso.UseVisualStyleBackColor = true;
+            this.curso.Click += new System.EventHandler(this.curso_Click);
             // 
             // Principal
             // 
