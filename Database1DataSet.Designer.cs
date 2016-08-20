@@ -40,6 +40,18 @@ namespace Examen {
         
         private RespuestaDataTable tableRespuesta;
         
+        private global::System.Data.DataRelation relationFK_Alumno_Calificacion;
+        
+        private global::System.Data.DataRelation relationFK_Alumno_Grupo_Alumno;
+        
+        private global::System.Data.DataRelation relationFK_Grupo_Grupo_Alumno;
+        
+        private global::System.Data.DataRelation relationFK_Materia_Tema;
+        
+        private global::System.Data.DataRelation relationFK_Tema_Pregunta;
+        
+        private global::System.Data.DataRelation relationFK_Pregunta_Respuesta;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -362,6 +374,12 @@ namespace Examen {
                     this.tableRespuesta.InitVars();
                 }
             }
+            this.relationFK_Alumno_Calificacion = this.Relations["FK_Alumno_Calificacion"];
+            this.relationFK_Alumno_Grupo_Alumno = this.Relations["FK_Alumno_Grupo_Alumno"];
+            this.relationFK_Grupo_Grupo_Alumno = this.Relations["FK_Grupo_Grupo_Alumno"];
+            this.relationFK_Materia_Tema = this.Relations["FK_Materia_Tema"];
+            this.relationFK_Tema_Pregunta = this.Relations["FK_Tema_Pregunta"];
+            this.relationFK_Pregunta_Respuesta = this.Relations["FK_Pregunta_Respuesta"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -388,6 +406,73 @@ namespace Examen {
             base.Tables.Add(this.tablePregunta);
             this.tableRespuesta = new RespuestaDataTable();
             base.Tables.Add(this.tableRespuesta);
+            global::System.Data.ForeignKeyConstraint fkc;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Alumno_Calificacion", new global::System.Data.DataColumn[] {
+                        this.tableAlumno.Id_AlColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCalificacion.Id_AlColumn});
+            this.tableCalificacion.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Alumno_Grupo_Alumno", new global::System.Data.DataColumn[] {
+                        this.tableAlumno.Id_AlColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGrupo_Alumno.Id_AlColumn});
+            this.tableGrupo_Alumno.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Grupo_Grupo_Alumno", new global::System.Data.DataColumn[] {
+                        this.tableGrupo.Id_GrupoColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGrupo_Alumno.Id_GrupoColumn});
+            this.tableGrupo_Alumno.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Materia_Tema", new global::System.Data.DataColumn[] {
+                        this.tableMateria.Id_MatColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTema.Id_MatColumn});
+            this.tableTema.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Tema_Pregunta", new global::System.Data.DataColumn[] {
+                        this.tableTema.Id_TemaColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePregunta.Id_TemaColumn});
+            this.tablePregunta.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Pregunta_Respuesta", new global::System.Data.DataColumn[] {
+                        this.tablePregunta.Id_PreguntaColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRespuesta.Id_PreguntaColumn});
+            this.tableRespuesta.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            this.relationFK_Alumno_Calificacion = new global::System.Data.DataRelation("FK_Alumno_Calificacion", new global::System.Data.DataColumn[] {
+                        this.tableAlumno.Id_AlColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCalificacion.Id_AlColumn}, false);
+            this.Relations.Add(this.relationFK_Alumno_Calificacion);
+            this.relationFK_Alumno_Grupo_Alumno = new global::System.Data.DataRelation("FK_Alumno_Grupo_Alumno", new global::System.Data.DataColumn[] {
+                        this.tableAlumno.Id_AlColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGrupo_Alumno.Id_AlColumn}, false);
+            this.Relations.Add(this.relationFK_Alumno_Grupo_Alumno);
+            this.relationFK_Grupo_Grupo_Alumno = new global::System.Data.DataRelation("FK_Grupo_Grupo_Alumno", new global::System.Data.DataColumn[] {
+                        this.tableGrupo.Id_GrupoColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGrupo_Alumno.Id_GrupoColumn}, false);
+            this.Relations.Add(this.relationFK_Grupo_Grupo_Alumno);
+            this.relationFK_Materia_Tema = new global::System.Data.DataRelation("FK_Materia_Tema", new global::System.Data.DataColumn[] {
+                        this.tableMateria.Id_MatColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTema.Id_MatColumn}, false);
+            this.Relations.Add(this.relationFK_Materia_Tema);
+            this.relationFK_Tema_Pregunta = new global::System.Data.DataRelation("FK_Tema_Pregunta", new global::System.Data.DataColumn[] {
+                        this.tableTema.Id_TemaColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePregunta.Id_TemaColumn}, false);
+            this.Relations.Add(this.relationFK_Tema_Pregunta);
+            this.relationFK_Pregunta_Respuesta = new global::System.Data.DataRelation("FK_Pregunta_Respuesta", new global::System.Data.DataColumn[] {
+                        this.tablePregunta.Id_PreguntaColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRespuesta.Id_PreguntaColumn}, false);
+            this.Relations.Add(this.relationFK_Pregunta_Respuesta);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -644,10 +729,10 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AlumnoRow AddAlumnoRow(int Id_Al, string Nombre, string Apellidos, string Sexo, string Matricula) {
+            public AlumnoRow AddAlumnoRow(string Nombre, string Apellidos, string Sexo, string Matricula) {
                 AlumnoRow rowAlumnoRow = ((AlumnoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id_Al,
+                        null,
                         Nombre,
                         Apellidos,
                         Sexo,
@@ -703,6 +788,8 @@ namespace Examen {
                 base.Columns.Add(this.columnMatricula);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId_Al}, true));
+                this.columnId_Al.AutoIncrement = true;
+                this.columnId_Al.AutoIncrementSeed = 1;
                 this.columnId_Al.AllowDBNull = false;
                 this.columnId_Al.Unique = true;
                 this.columnNombre.AllowDBNull = false;
@@ -850,6 +937,8 @@ namespace Examen {
             
             private global::System.Data.DataColumn columnUnidad;
             
+            private global::System.Data.DataColumn columnId_Al;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CalificacionDataTable() {
@@ -901,6 +990,14 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Id_AlColumn {
+                get {
+                    return this.columnId_Al;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -936,11 +1033,15 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CalificacionRow AddCalificacionRow(int Id_Cal, int Unidad) {
+            public CalificacionRow AddCalificacionRow(int Id_Cal, int Unidad, AlumnoRow parentAlumnoRowByFK_Alumno_Calificacion) {
                 CalificacionRow rowCalificacionRow = ((CalificacionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id_Cal,
-                        Unidad};
+                        Unidad,
+                        null};
+                if ((parentAlumnoRowByFK_Alumno_Calificacion != null)) {
+                    columnValuesArray[2] = parentAlumnoRowByFK_Alumno_Calificacion[0];
+                }
                 rowCalificacionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCalificacionRow);
                 return rowCalificacionRow;
@@ -972,6 +1073,7 @@ namespace Examen {
             internal void InitVars() {
                 this.columnId_Cal = base.Columns["Id_Cal"];
                 this.columnUnidad = base.Columns["Unidad"];
+                this.columnId_Al = base.Columns["Id_Al"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -981,6 +1083,8 @@ namespace Examen {
                 base.Columns.Add(this.columnId_Cal);
                 this.columnUnidad = new global::System.Data.DataColumn("Unidad", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUnidad);
+                this.columnId_Al = new global::System.Data.DataColumn("Id_Al", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Al);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId_Cal}, true));
                 this.columnId_Cal.AllowDBNull = false;
@@ -1121,6 +1225,10 @@ namespace Examen {
             
             private global::System.Data.DataColumn columnId_Grup_Al;
             
+            private global::System.Data.DataColumn columnId_Grupo;
+            
+            private global::System.Data.DataColumn columnId_Al;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Grupo_AlumnoDataTable() {
@@ -1164,6 +1272,22 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Id_GrupoColumn {
+                get {
+                    return this.columnId_Grupo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Id_AlColumn {
+                get {
+                    return this.columnId_Al;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1199,10 +1323,18 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Grupo_AlumnoRow AddGrupo_AlumnoRow(int Id_Grup_Al) {
+            public Grupo_AlumnoRow AddGrupo_AlumnoRow(int Id_Grup_Al, GrupoRow parentGrupoRowByFK_Grupo_Grupo_Alumno, AlumnoRow parentAlumnoRowByFK_Alumno_Grupo_Alumno) {
                 Grupo_AlumnoRow rowGrupo_AlumnoRow = ((Grupo_AlumnoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id_Grup_Al};
+                        Id_Grup_Al,
+                        null,
+                        null};
+                if ((parentGrupoRowByFK_Grupo_Grupo_Alumno != null)) {
+                    columnValuesArray[1] = parentGrupoRowByFK_Grupo_Grupo_Alumno[0];
+                }
+                if ((parentAlumnoRowByFK_Alumno_Grupo_Alumno != null)) {
+                    columnValuesArray[2] = parentAlumnoRowByFK_Alumno_Grupo_Alumno[0];
+                }
                 rowGrupo_AlumnoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGrupo_AlumnoRow);
                 return rowGrupo_AlumnoRow;
@@ -1233,6 +1365,8 @@ namespace Examen {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnId_Grup_Al = base.Columns["Id_Grup_Al"];
+                this.columnId_Grupo = base.Columns["Id_Grupo"];
+                this.columnId_Al = base.Columns["Id_Al"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1240,6 +1374,10 @@ namespace Examen {
             private void InitClass() {
                 this.columnId_Grup_Al = new global::System.Data.DataColumn("Id_Grup_Al", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId_Grup_Al);
+                this.columnId_Grupo = new global::System.Data.DataColumn("Id_Grupo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Grupo);
+                this.columnId_Al = new global::System.Data.DataColumn("Id_Al", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Al);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId_Grup_Al}, true));
                 this.columnId_Grup_Al.AllowDBNull = false;
@@ -1487,10 +1625,10 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GrupoRow AddGrupoRow(int Id_Grupo, string Nombre, System.DateTime Fecha_Ini, System.DateTime Fecha_Fin) {
+            public GrupoRow AddGrupoRow(string Nombre, System.DateTime Fecha_Ini, System.DateTime Fecha_Fin) {
                 GrupoRow rowGrupoRow = ((GrupoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id_Grupo,
+                        null,
                         Nombre,
                         Fecha_Ini,
                         Fecha_Fin};
@@ -1542,6 +1680,8 @@ namespace Examen {
                 base.Columns.Add(this.columnFecha_Fin);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId_Grupo}, true));
+                this.columnId_Grupo.AutoIncrement = true;
+                this.columnId_Grupo.AutoIncrementSeed = 1;
                 this.columnId_Grupo.AllowDBNull = false;
                 this.columnId_Grupo.Unique = true;
                 this.columnNombre.AllowDBNull = false;
@@ -1685,7 +1825,7 @@ namespace Examen {
             
             private global::System.Data.DataColumn columnNombre;
             
-            private global::System.Data.DataColumn columnUnidades;
+            private global::System.Data.DataColumn columnUnidad;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1738,9 +1878,9 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn UnidadesColumn {
+            public global::System.Data.DataColumn UnidadColumn {
                 get {
-                    return this.columnUnidades;
+                    return this.columnUnidad;
                 }
             }
             
@@ -1781,12 +1921,12 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MateriaRow AddMateriaRow(int Id_Mat, string Nombre, int Unidades) {
+            public MateriaRow AddMateriaRow(string Nombre, int Unidad) {
                 MateriaRow rowMateriaRow = ((MateriaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id_Mat,
+                        null,
                         Nombre,
-                        Unidades};
+                        Unidad};
                 rowMateriaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMateriaRow);
                 return rowMateriaRow;
@@ -1818,7 +1958,7 @@ namespace Examen {
             internal void InitVars() {
                 this.columnId_Mat = base.Columns["Id_Mat"];
                 this.columnNombre = base.Columns["Nombre"];
-                this.columnUnidades = base.Columns["Unidades"];
+                this.columnUnidad = base.Columns["Unidad"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1828,15 +1968,16 @@ namespace Examen {
                 base.Columns.Add(this.columnId_Mat);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
-                this.columnUnidades = new global::System.Data.DataColumn("Unidades", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUnidades);
+                this.columnUnidad = new global::System.Data.DataColumn("Unidad", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUnidad);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId_Mat}, true));
+                this.columnId_Mat.AutoIncrement = true;
                 this.columnId_Mat.AllowDBNull = false;
                 this.columnId_Mat.Unique = true;
                 this.columnNombre.AllowDBNull = false;
                 this.columnNombre.MaxLength = 100;
-                this.columnUnidades.AllowDBNull = false;
+                this.columnUnidad.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1976,6 +2117,8 @@ namespace Examen {
             
             private global::System.Data.DataColumn columnNombre;
             
+            private global::System.Data.DataColumn columnId_Mat;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TemaDataTable() {
@@ -2035,6 +2178,14 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Id_MatColumn {
+                get {
+                    return this.columnId_Mat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2070,12 +2221,16 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TemaRow AddTemaRow(int Id_Tema, string Unidad, string Nombre) {
+            public TemaRow AddTemaRow(string Unidad, string Nombre, MateriaRow parentMateriaRowByFK_Materia_Tema) {
                 TemaRow rowTemaRow = ((TemaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id_Tema,
+                        null,
                         Unidad,
-                        Nombre};
+                        Nombre,
+                        null};
+                if ((parentMateriaRowByFK_Materia_Tema != null)) {
+                    columnValuesArray[3] = parentMateriaRowByFK_Materia_Tema[0];
+                }
                 rowTemaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTemaRow);
                 return rowTemaRow;
@@ -2108,6 +2263,7 @@ namespace Examen {
                 this.columnId_Tema = base.Columns["Id_Tema"];
                 this.columnUnidad = base.Columns["Unidad"];
                 this.columnNombre = base.Columns["Nombre"];
+                this.columnId_Mat = base.Columns["Id_Mat"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2119,8 +2275,11 @@ namespace Examen {
                 base.Columns.Add(this.columnUnidad);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
+                this.columnId_Mat = new global::System.Data.DataColumn("Id_Mat", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Mat);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId_Tema}, true));
+                this.columnId_Tema.AutoIncrement = true;
                 this.columnId_Tema.AllowDBNull = false;
                 this.columnId_Tema.Unique = true;
                 this.columnUnidad.AllowDBNull = false;
@@ -2268,6 +2427,8 @@ namespace Examen {
             
             private global::System.Data.DataColumn columnPadre;
             
+            private global::System.Data.DataColumn columnId_Tema;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PreguntaDataTable() {
@@ -2335,6 +2496,14 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Id_TemaColumn {
+                get {
+                    return this.columnId_Tema;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2370,13 +2539,17 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PreguntaRow AddPreguntaRow(int Id_Pregunta, string Pregunta, string Tipo, int Padre) {
+            public PreguntaRow AddPreguntaRow(string Pregunta, string Tipo, int Padre, TemaRow parentTemaRowByFK_Tema_Pregunta) {
                 PreguntaRow rowPreguntaRow = ((PreguntaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id_Pregunta,
+                        null,
                         Pregunta,
                         Tipo,
-                        Padre};
+                        Padre,
+                        null};
+                if ((parentTemaRowByFK_Tema_Pregunta != null)) {
+                    columnValuesArray[4] = parentTemaRowByFK_Tema_Pregunta[0];
+                }
                 rowPreguntaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPreguntaRow);
                 return rowPreguntaRow;
@@ -2410,6 +2583,7 @@ namespace Examen {
                 this.columnPregunta = base.Columns["Pregunta"];
                 this.columnTipo = base.Columns["Tipo"];
                 this.columnPadre = base.Columns["Padre"];
+                this.columnId_Tema = base.Columns["Id_Tema"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2423,8 +2597,11 @@ namespace Examen {
                 base.Columns.Add(this.columnTipo);
                 this.columnPadre = new global::System.Data.DataColumn("Padre", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPadre);
+                this.columnId_Tema = new global::System.Data.DataColumn("Id_Tema", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Tema);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId_Pregunta}, true));
+                this.columnId_Pregunta.AutoIncrement = true;
                 this.columnId_Pregunta.AllowDBNull = false;
                 this.columnId_Pregunta.Unique = true;
                 this.columnPregunta.AllowDBNull = false;
@@ -2570,6 +2747,8 @@ namespace Examen {
             
             private global::System.Data.DataColumn columnCorrecta;
             
+            private global::System.Data.DataColumn columnId_Pregunta;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RespuestaDataTable() {
@@ -2629,6 +2808,14 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Id_PreguntaColumn {
+                get {
+                    return this.columnId_Pregunta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2664,12 +2851,16 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RespuestaRow AddRespuestaRow(int Id_Respuesta, string Respuesta, string Correcta) {
+            public RespuestaRow AddRespuestaRow(string Respuesta, string Correcta, PreguntaRow parentPreguntaRowByFK_Pregunta_Respuesta) {
                 RespuestaRow rowRespuestaRow = ((RespuestaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id_Respuesta,
+                        null,
                         Respuesta,
-                        Correcta};
+                        Correcta,
+                        null};
+                if ((parentPreguntaRowByFK_Pregunta_Respuesta != null)) {
+                    columnValuesArray[3] = parentPreguntaRowByFK_Pregunta_Respuesta[0];
+                }
                 rowRespuestaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRespuestaRow);
                 return rowRespuestaRow;
@@ -2702,6 +2893,7 @@ namespace Examen {
                 this.columnId_Respuesta = base.Columns["Id_Respuesta"];
                 this.columnRespuesta = base.Columns["Respuesta"];
                 this.columnCorrecta = base.Columns["Correcta"];
+                this.columnId_Pregunta = base.Columns["Id_Pregunta"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2713,8 +2905,11 @@ namespace Examen {
                 base.Columns.Add(this.columnRespuesta);
                 this.columnCorrecta = new global::System.Data.DataColumn("Correcta", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCorrecta);
+                this.columnId_Pregunta = new global::System.Data.DataColumn("Id_Pregunta", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Pregunta);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId_Respuesta}, true));
+                this.columnId_Respuesta.AutoIncrement = true;
                 this.columnId_Respuesta.AllowDBNull = false;
                 this.columnId_Respuesta.Unique = true;
                 this.columnRespuesta.AllowDBNull = false;
@@ -2915,6 +3110,28 @@ namespace Examen {
                     this[this.tableAlumno.MatriculaColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Grupo_AlumnoRow[] GetGrupo_AlumnoRows() {
+                if ((this.Table.ChildRelations["FK_Alumno_Grupo_Alumno"] == null)) {
+                    return new Grupo_AlumnoRow[0];
+                }
+                else {
+                    return ((Grupo_AlumnoRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Alumno_Grupo_Alumno"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CalificacionRow[] GetCalificacionRows() {
+                if ((this.Table.ChildRelations["FK_Alumno_Calificacion"] == null)) {
+                    return new CalificacionRow[0];
+                }
+                else {
+                    return ((CalificacionRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Alumno_Calificacion"])));
+                }
+            }
         }
         
         /// <summary>
@@ -2952,6 +3169,45 @@ namespace Examen {
                     this[this.tableCalificacion.UnidadColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id_Al {
+                get {
+                    try {
+                        return ((int)(this[this.tableCalificacion.Id_AlColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Id_Al\' de la tabla \'Calificacion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCalificacion.Id_AlColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AlumnoRow AlumnoRow {
+                get {
+                    return ((AlumnoRow)(this.GetParentRow(this.Table.ParentRelations["FK_Alumno_Calificacion"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Alumno_Calificacion"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsId_AlNull() {
+                return this.IsNull(this.tableCalificacion.Id_AlColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetId_AlNull() {
+                this[this.tableCalificacion.Id_AlColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2977,6 +3233,84 @@ namespace Examen {
                 set {
                     this[this.tableGrupo_Alumno.Id_Grup_AlColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id_Grupo {
+                get {
+                    try {
+                        return ((int)(this[this.tableGrupo_Alumno.Id_GrupoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Id_Grupo\' de la tabla \'Grupo_Alumno\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGrupo_Alumno.Id_GrupoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id_Al {
+                get {
+                    try {
+                        return ((int)(this[this.tableGrupo_Alumno.Id_AlColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Id_Al\' de la tabla \'Grupo_Alumno\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGrupo_Alumno.Id_AlColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AlumnoRow AlumnoRow {
+                get {
+                    return ((AlumnoRow)(this.GetParentRow(this.Table.ParentRelations["FK_Alumno_Grupo_Alumno"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Alumno_Grupo_Alumno"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GrupoRow GrupoRow {
+                get {
+                    return ((GrupoRow)(this.GetParentRow(this.Table.ParentRelations["FK_Grupo_Grupo_Alumno"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Grupo_Grupo_Alumno"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsId_GrupoNull() {
+                return this.IsNull(this.tableGrupo_Alumno.Id_GrupoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetId_GrupoNull() {
+                this[this.tableGrupo_Alumno.Id_GrupoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsId_AlNull() {
+                return this.IsNull(this.tableGrupo_Alumno.Id_AlColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetId_AlNull() {
+                this[this.tableGrupo_Alumno.Id_AlColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3037,6 +3371,17 @@ namespace Examen {
                     this[this.tableGrupo.Fecha_FinColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Grupo_AlumnoRow[] GetGrupo_AlumnoRows() {
+                if ((this.Table.ChildRelations["FK_Grupo_Grupo_Alumno"] == null)) {
+                    return new Grupo_AlumnoRow[0];
+                }
+                else {
+                    return ((Grupo_AlumnoRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Grupo_Grupo_Alumno"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3077,12 +3422,23 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Unidades {
+            public int Unidad {
                 get {
-                    return ((int)(this[this.tableMateria.UnidadesColumn]));
+                    return ((int)(this[this.tableMateria.UnidadColumn]));
                 }
                 set {
-                    this[this.tableMateria.UnidadesColumn] = value;
+                    this[this.tableMateria.UnidadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TemaRow[] GetTemaRows() {
+                if ((this.Table.ChildRelations["FK_Materia_Tema"] == null)) {
+                    return new TemaRow[0];
+                }
+                else {
+                    return ((TemaRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Materia_Tema"])));
                 }
             }
         }
@@ -3131,6 +3487,56 @@ namespace Examen {
                 }
                 set {
                     this[this.tableTema.NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id_Mat {
+                get {
+                    try {
+                        return ((int)(this[this.tableTema.Id_MatColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Id_Mat\' de la tabla \'Tema\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTema.Id_MatColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MateriaRow MateriaRow {
+                get {
+                    return ((MateriaRow)(this.GetParentRow(this.Table.ParentRelations["FK_Materia_Tema"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Materia_Tema"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsId_MatNull() {
+                return this.IsNull(this.tableTema.Id_MatColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetId_MatNull() {
+                this[this.tableTema.Id_MatColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PreguntaRow[] GetPreguntaRows() {
+                if ((this.Table.ChildRelations["FK_Tema_Pregunta"] == null)) {
+                    return new PreguntaRow[0];
+                }
+                else {
+                    return ((PreguntaRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Tema_Pregunta"])));
                 }
             }
         }
@@ -3200,6 +3606,33 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id_Tema {
+                get {
+                    try {
+                        return ((int)(this[this.tablePregunta.Id_TemaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Id_Tema\' de la tabla \'Pregunta\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePregunta.Id_TemaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TemaRow TemaRow {
+                get {
+                    return ((TemaRow)(this.GetParentRow(this.Table.ParentRelations["FK_Tema_Pregunta"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Tema_Pregunta"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPadreNull() {
                 return this.IsNull(this.tablePregunta.PadreColumn);
             }
@@ -3208,6 +3641,29 @@ namespace Examen {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPadreNull() {
                 this[this.tablePregunta.PadreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsId_TemaNull() {
+                return this.IsNull(this.tablePregunta.Id_TemaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetId_TemaNull() {
+                this[this.tablePregunta.Id_TemaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RespuestaRow[] GetRespuestaRows() {
+                if ((this.Table.ChildRelations["FK_Pregunta_Respuesta"] == null)) {
+                    return new RespuestaRow[0];
+                }
+                else {
+                    return ((RespuestaRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Pregunta_Respuesta"])));
+                }
             }
         }
         
@@ -3256,6 +3712,45 @@ namespace Examen {
                 set {
                     this[this.tableRespuesta.CorrectaColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id_Pregunta {
+                get {
+                    try {
+                        return ((int)(this[this.tableRespuesta.Id_PreguntaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Id_Pregunta\' de la tabla \'Respuesta\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRespuesta.Id_PreguntaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PreguntaRow PreguntaRow {
+                get {
+                    return ((PreguntaRow)(this.GetParentRow(this.Table.ParentRelations["FK_Pregunta_Respuesta"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Pregunta_Respuesta"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsId_PreguntaNull() {
+                return this.IsNull(this.tableRespuesta.Id_PreguntaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetId_PreguntaNull() {
+                this[this.tableRespuesta.Id_PreguntaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4902,7 +5397,7 @@ namespace Examen.Database1DataSetTableAdapters {
             tableMapping.DataSetTable = "Materia";
             tableMapping.ColumnMappings.Add("Id_Mat", "Id_Mat");
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
-            tableMapping.ColumnMappings.Add("Unidades", "Unidades");
+            tableMapping.ColumnMappings.Add("Unidades", "Unidad");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -6314,42 +6809,6 @@ namespace Examen.Database1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(Database1DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._alumnoTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Alumno.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._alumnoTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._calificacionTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Calificacion.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._calificacionTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._grupo_AlumnoTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Grupo_Alumno.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._grupo_AlumnoTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._grupoTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Grupo.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._grupoTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._materiaTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Materia.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -6368,12 +6827,48 @@ namespace Examen.Database1DataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._alumnoTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Alumno.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._alumnoTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._grupoTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Grupo.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._grupoTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._preguntaTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Pregunta.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._preguntaTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._calificacionTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Calificacion.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._calificacionTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._grupo_AlumnoTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Grupo_Alumno.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._grupo_AlumnoTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6396,38 +6891,6 @@ namespace Examen.Database1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(Database1DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._alumnoTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Alumno.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._alumnoTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._calificacionTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Calificacion.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._calificacionTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._grupo_AlumnoTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Grupo_Alumno.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._grupo_AlumnoTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._grupoTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Grupo.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._grupoTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._materiaTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Materia.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -6444,11 +6907,43 @@ namespace Examen.Database1DataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._alumnoTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Alumno.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._alumnoTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._grupoTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Grupo.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._grupoTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._preguntaTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Pregunta.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._preguntaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._calificacionTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Calificacion.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._calificacionTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._grupo_AlumnoTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Grupo_Alumno.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._grupo_AlumnoTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6478,38 +6973,6 @@ namespace Examen.Database1DataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._preguntaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Pregunta.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._preguntaTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._temaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tema.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._temaTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._materiaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Materia.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._materiaTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._grupoTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Grupo.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._grupoTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._grupo_AlumnoTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Grupo_Alumno.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -6526,11 +6989,43 @@ namespace Examen.Database1DataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._preguntaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Pregunta.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._preguntaTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._grupoTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Grupo.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._grupoTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._alumnoTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Alumno.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._alumnoTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._temaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tema.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._temaTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._materiaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Materia.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._materiaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
