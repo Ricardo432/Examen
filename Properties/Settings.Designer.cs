@@ -43,5 +43,15 @@ namespace Examen.Properties {
                 return ((string)(this["Database1ConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=|DataDirectory|\\ExamenDB.sdf")]
+        public string ExamenDBConnectionString {
+            get {
+                return ((string)(this["ExamenDBConnectionString"]));
+            }
+        }
     }
 }
