@@ -29,34 +29,70 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.examenDataSet = new Examen.ExamenDataSet();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.mATERIABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.examenDataSet1 = new Examen.ExamenDataSet();
-            this.label1 = new System.Windows.Forms.Label();
-            this.act = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iDTEMADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDMATDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uNIDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOMBREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tEMABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.examenDataSet)).BeginInit();
+            this.act = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.database1DataSet = new Examen.Database1DataSet();
+            this.materiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.materiaTableAdapter = new Examen.Database1DataSetTableAdapters.MateriaTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mATERIABindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.examenDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tEMABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // examenDataSet
+            // dataGridView1
             // 
-            this.examenDataSet.DataSetName = "ExamenDataSet";
-            this.examenDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.dataGridView1.DataSource = this.materiaBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 23);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(452, 150);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // act
+            // 
+            this.act.Location = new System.Drawing.Point(172, 205);
+            this.act.Name = "act";
+            this.act.Size = new System.Drawing.Size(75, 23);
+            this.act.TabIndex = 1;
+            this.act.Text = "Actualizar";
+            this.act.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(64, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Asignatura";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.materiaBindingSource, "Id_Mat", true));
+            this.comboBox1.DataSource = this.materiaBindingSource;
+            this.comboBox1.DisplayMember = "Nombre";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(147, 23);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 2;
+            this.comboBox1.ValueMember = "Id_Mat";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // splitContainer1
             // 
@@ -79,86 +115,37 @@
             this.splitContainer1.SplitterDistance = 82;
             this.splitContainer1.TabIndex = 0;
             // 
-            // comboBox1
+            // database1DataSet
             // 
-            this.comboBox1.DataSource = this.mATERIABindingSource;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(147, 23);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 2;
+            this.database1DataSet.DataSetName = "Database1DataSet";
+            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // mATERIABindingSource
+            // materiaBindingSource
             // 
-            this.mATERIABindingSource.DataMember = "MATERIA";
-            this.mATERIABindingSource.DataSource = this.examenDataSet1;
+            this.materiaBindingSource.DataMember = "Materia";
+            this.materiaBindingSource.DataSource = this.database1DataSet;
             // 
-            // examenDataSet1
+            // materiaTableAdapter
             // 
-            this.examenDataSet1.DataSetName = "ExamenDataSet";
-            this.examenDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.materiaTableAdapter.ClearBeforeFill = true;
             // 
-            // label1
+            // dataGridViewTextBoxColumn1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Asignatura";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id_Mat";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id_Mat";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // act
+            // dataGridViewTextBoxColumn2
             // 
-            this.act.Location = new System.Drawing.Point(172, 205);
-            this.act.Name = "act";
-            this.act.Size = new System.Drawing.Size(75, 23);
-            this.act.TabIndex = 1;
-            this.act.Text = "Actualizar";
-            this.act.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Nombre";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // dataGridView1
+            // dataGridViewTextBoxColumn3
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDTEMADataGridViewTextBoxColumn,
-            this.iDMATDataGridViewTextBoxColumn,
-            this.uNIDADDataGridViewTextBoxColumn,
-            this.nOMBREDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.tEMABindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 23);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(452, 150);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // iDTEMADataGridViewTextBoxColumn
-            // 
-            this.iDTEMADataGridViewTextBoxColumn.DataPropertyName = "ID_TEMA";
-            this.iDTEMADataGridViewTextBoxColumn.HeaderText = "ID_TEMA";
-            this.iDTEMADataGridViewTextBoxColumn.Name = "iDTEMADataGridViewTextBoxColumn";
-            // 
-            // iDMATDataGridViewTextBoxColumn
-            // 
-            this.iDMATDataGridViewTextBoxColumn.DataPropertyName = "ID_MAT";
-            this.iDMATDataGridViewTextBoxColumn.HeaderText = "ID_MAT";
-            this.iDMATDataGridViewTextBoxColumn.Name = "iDMATDataGridViewTextBoxColumn";
-            // 
-            // uNIDADDataGridViewTextBoxColumn
-            // 
-            this.uNIDADDataGridViewTextBoxColumn.DataPropertyName = "UNIDAD";
-            this.uNIDADDataGridViewTextBoxColumn.HeaderText = "UNIDAD";
-            this.uNIDADDataGridViewTextBoxColumn.Name = "uNIDADDataGridViewTextBoxColumn";
-            // 
-            // nOMBREDataGridViewTextBoxColumn
-            // 
-            this.nOMBREDataGridViewTextBoxColumn.DataPropertyName = "NOMBRE";
-            this.nOMBREDataGridViewTextBoxColumn.HeaderText = "NOMBRE";
-            this.nOMBREDataGridViewTextBoxColumn.Name = "nOMBREDataGridViewTextBoxColumn";
-            // 
-            // tEMABindingSource
-            // 
-            this.tEMABindingSource.DataMember = "TEMA";
-            this.tEMABindingSource.DataSource = this.examenDataSet;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Unidad";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Unidad";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // Tema
             // 
@@ -168,35 +155,36 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "Tema";
             this.Text = "Temas";
-            ((System.ComponentModel.ISupportInitialize)(this.examenDataSet)).EndInit();
+            this.Load += new System.EventHandler(this.Tema_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.mATERIABindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.examenDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tEMABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private ExamenDataSet examenDataSet;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.BindingSource mATERIABindingSource;
-        private ExamenDataSet examenDataSet1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button act;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDTEMADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDMATDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn uNIDADDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOMBREDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource tEMABindingSource;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button act;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private Database1DataSet database1DataSet;
+        private System.Windows.Forms.BindingSource materiaBindingSource;
+        private Database1DataSetTableAdapters.MateriaTableAdapter materiaTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
 
     }
 }

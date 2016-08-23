@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.examenDataSet = new Examen.ExamenDataSet();
+            this.examenDataSet = new Examen.Database1DataSet();
             this.rESPUESTABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDRESPUESTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDPREGUNTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,7 +125,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rESPUESTADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cORRECTADataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource rESPUESTABindingSource;
-        private ExamenDataSet examenDataSet;
+        private Database1DataSet examenDataSet;
         private System.Windows.Forms.Label label1;
     }
 }

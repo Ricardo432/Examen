@@ -1,2 +1,16 @@
 c:\users\ricardo\documents\visual studio 2012\Projects\Examen\Examen\bin\Debug\Examen.exe.config
 C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\bin\Debug\Examen.exe.config
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.csprojResolveAssemblyReference.cache
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.Reactivo.resources
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.Respuesta.resources
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.Tema.resources
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.Form1.resources
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.Materia.resources
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.Principal.resources
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.Properties.Resources.resources
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.csproj.GenerateResource.Cache
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\bin\Debug\Database1.sdf
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\bin\Debug\Examen.exe
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\bin\Debug\Examen.pdb
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.exe
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.pdb

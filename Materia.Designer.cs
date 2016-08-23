@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.mATERIABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.examenDataSet = new Examen.ExamenDataSet();
+            this.examenDataSet = new Examen.Database1DataSet();
             this.button1 = new System.Windows.Forms.Button();
             this.nOMBREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uNIDADESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,7 +149,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn uNIDADDataGridViewTextBoxColumn;
-        private ExamenDataSet examenDataSet;
+        private Database1DataSet examenDataSet;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource mATERIABindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOMBREDataGridViewTextBoxColumn;

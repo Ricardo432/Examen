@@ -35,23 +35,32 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.select = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.iDPREGUNTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pREGUNTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tIPODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pADREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDTEMADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.examenDataSet = new Examen.Database1DataSet();
             this.pREGUNTABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.examenDataSet = new Examen.ExamenDataSet();
-            this.button1 = new System.Windows.Forms.Button();
+            this.materiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.materiaTableAdapter = new Examen.Database1DataSetTableAdapters.MateriaTableAdapter();
+            this.temaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.temaTableAdapter = new Examen.Database1DataSetTableAdapters.TemaTableAdapter();
+            this.preguntaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.preguntaTableAdapter = new Examen.Database1DataSetTableAdapters.PreguntaTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pREGUNTABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.examenDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pREGUNTABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.temaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.preguntaBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -79,11 +88,15 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.temaBindingSource, "Id_Tema", true));
+            this.comboBox2.DataSource = this.temaBindingSource;
+            this.comboBox2.DisplayMember = "Nombre";
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(316, 21);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 4;
+            this.comboBox2.ValueMember = "Id_Tema";
             // 
             // busc
             // 
@@ -96,11 +109,15 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.materiaBindingSource, "Id_Mat", true));
+            this.comboBox1.DataSource = this.materiaBindingSource;
+            this.comboBox1.DisplayMember = "Nombre";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(98, 22);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 2;
+            this.comboBox1.ValueMember = "Id_Mat";
             // 
             // label2
             // 
@@ -118,7 +135,16 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Asignaruta";
+            this.label1.Text = "Asignatura";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(278, 182);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Agregar ";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -126,12 +152,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.select,
-            this.iDPREGUNTADataGridViewTextBoxColumn,
-            this.pREGUNTADataGridViewTextBoxColumn,
-            this.tIPODataGridViewTextBoxColumn,
-            this.pADREDataGridViewTextBoxColumn,
-            this.iDTEMADataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.pREGUNTABindingSource;
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dataGridView1.DataSource = this.preguntaBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(3, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(692, 150);
@@ -144,54 +170,72 @@
             this.select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.select.Text = "";
             // 
-            // iDPREGUNTADataGridViewTextBoxColumn
+            // examenDataSet
             // 
-            this.iDPREGUNTADataGridViewTextBoxColumn.DataPropertyName = "ID_PREGUNTA";
-            this.iDPREGUNTADataGridViewTextBoxColumn.HeaderText = "ID_PREGUNTA";
-            this.iDPREGUNTADataGridViewTextBoxColumn.Name = "iDPREGUNTADataGridViewTextBoxColumn";
-            // 
-            // pREGUNTADataGridViewTextBoxColumn
-            // 
-            this.pREGUNTADataGridViewTextBoxColumn.DataPropertyName = "PREGUNTA";
-            this.pREGUNTADataGridViewTextBoxColumn.HeaderText = "PREGUNTA";
-            this.pREGUNTADataGridViewTextBoxColumn.Name = "pREGUNTADataGridViewTextBoxColumn";
-            // 
-            // tIPODataGridViewTextBoxColumn
-            // 
-            this.tIPODataGridViewTextBoxColumn.DataPropertyName = "TIPO";
-            this.tIPODataGridViewTextBoxColumn.HeaderText = "TIPO";
-            this.tIPODataGridViewTextBoxColumn.Name = "tIPODataGridViewTextBoxColumn";
-            // 
-            // pADREDataGridViewTextBoxColumn
-            // 
-            this.pADREDataGridViewTextBoxColumn.DataPropertyName = "PADRE";
-            this.pADREDataGridViewTextBoxColumn.HeaderText = "PADRE";
-            this.pADREDataGridViewTextBoxColumn.Name = "pADREDataGridViewTextBoxColumn";
-            // 
-            // iDTEMADataGridViewTextBoxColumn
-            // 
-            this.iDTEMADataGridViewTextBoxColumn.DataPropertyName = "ID_TEMA";
-            this.iDTEMADataGridViewTextBoxColumn.HeaderText = "ID_TEMA";
-            this.iDTEMADataGridViewTextBoxColumn.Name = "iDTEMADataGridViewTextBoxColumn";
+            this.examenDataSet.DataSetName = "ExamenDataSet";
+            this.examenDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pREGUNTABindingSource
             // 
             this.pREGUNTABindingSource.DataMember = "PREGUNTA";
             this.pREGUNTABindingSource.DataSource = this.examenDataSet;
             // 
-            // examenDataSet
+            // materiaBindingSource
             // 
-            this.examenDataSet.DataSetName = "ExamenDataSet";
-            this.examenDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.materiaBindingSource.DataMember = "Materia";
+            this.materiaBindingSource.DataSource = this.examenDataSet;
             // 
-            // button1
+            // materiaTableAdapter
             // 
-            this.button1.Location = new System.Drawing.Point(278, 182);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Agregar ";
-            this.button1.UseVisualStyleBackColor = true;
+            this.materiaTableAdapter.ClearBeforeFill = true;
+            // 
+            // temaBindingSource
+            // 
+            this.temaBindingSource.DataMember = "Tema";
+            this.temaBindingSource.DataSource = this.examenDataSet;
+            // 
+            // temaTableAdapter
+            // 
+            this.temaTableAdapter.ClearBeforeFill = true;
+            // 
+            // preguntaBindingSource1
+            // 
+            this.preguntaBindingSource1.DataMember = "Pregunta";
+            this.preguntaBindingSource1.DataSource = this.examenDataSet;
+            // 
+            // preguntaTableAdapter
+            // 
+            this.preguntaTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id_Pregunta";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id_Pregunta";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Pregunta";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Pregunta";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Tipo";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Tipo";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Padre";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Padre";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Id_Tema";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Id_Tema";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // Reactivo
             // 
@@ -201,14 +245,18 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "Reactivo";
             this.Text = "Reactivo";
+            this.Load += new System.EventHandler(this.Reactivo_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pREGUNTABindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.examenDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pREGUNTABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.temaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.preguntaBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -228,8 +276,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tIPODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pADREDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDTEMADataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource pREGUNTABindingSource;
-        private ExamenDataSet examenDataSet;
         private System.Windows.Forms.Button button1;
+        private Database1DataSet examenDataSet;
+        private System.Windows.Forms.BindingSource pREGUNTABindingSource;
+        private System.Windows.Forms.BindingSource materiaBindingSource;
+        private Database1DataSetTableAdapters.MateriaTableAdapter materiaTableAdapter;
+        private System.Windows.Forms.BindingSource temaBindingSource;
+        private Database1DataSetTableAdapters.TemaTableAdapter temaTableAdapter;
+        private System.Windows.Forms.BindingSource preguntaBindingSource1;
+        private Database1DataSetTableAdapters.PreguntaTableAdapter preguntaTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
