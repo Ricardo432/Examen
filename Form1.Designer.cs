@@ -51,6 +51,7 @@
             this.pass.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pass.Location = new System.Drawing.Point(64, 138);
             this.pass.Name = "pass";
+            this.pass.PasswordChar = '*';
             this.pass.Size = new System.Drawing.Size(156, 25);
             this.pass.TabIndex = 1;
             // 
