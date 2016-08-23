@@ -34,6 +34,7 @@
             this.tema = new System.Windows.Forms.Button();
             this.reactivo = new System.Windows.Forms.Button();
             this.curso = new System.Windows.Forms.Button();
+            this.logoutbtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +46,8 @@
             this.tableLayoutPanel1.Controls.Add(this.asignatura, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tema, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.reactivo, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.curso, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.curso, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.logoutbtn, 0, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
@@ -55,7 +57,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(197, 225);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(197, 268);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -109,13 +111,23 @@
             this.curso.UseVisualStyleBackColor = true;
             this.curso.Click += new System.EventHandler(this.curso_Click);
             // 
+            // logoutbtn
+            // 
+            this.logoutbtn.Location = new System.Drawing.Point(3, 228);
+            this.logoutbtn.Name = "logoutbtn";
+            this.logoutbtn.Size = new System.Drawing.Size(194, 40);
+            this.logoutbtn.TabIndex = 1;
+            this.logoutbtn.Text = "Cerrar Sesion";
+            this.logoutbtn.UseVisualStyleBackColor = true;
+            this.logoutbtn.Click += new System.EventHandler(this.logoutbtn_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(197, 229);
+            this.ClientSize = new System.Drawing.Size(197, 274);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MaximumSize = new System.Drawing.Size(213, 268);
+            this.MaximumSize = new System.Drawing.Size(500, 500);
             this.MinimumSize = new System.Drawing.Size(213, 268);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -128,22 +140,22 @@
 
         private void tema_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
         private void reactivo_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
         private void estadistica_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
         private void curso_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
         #endregion
@@ -154,6 +166,7 @@
         private System.Windows.Forms.Button asignatura;
         private System.Windows.Forms.Button tema;
         private System.Windows.Forms.Button curso;
+        private System.Windows.Forms.Button logoutbtn;
 
 
     }

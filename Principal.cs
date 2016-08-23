@@ -36,5 +36,17 @@ namespace Examen
         {
 
         }
+
+        private void logoutbtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 f = new Form1();
+            f.Show();
+        }
+
+        private void principal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

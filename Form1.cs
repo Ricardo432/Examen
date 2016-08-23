@@ -65,6 +65,10 @@ namespace Examen
             }
         }
 
+        private void form1_FormClosing(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
         
     }
 }
