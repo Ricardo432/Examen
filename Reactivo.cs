@@ -19,12 +19,18 @@ namespace Examen
 
         private void Reactivo_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'database1DataSet.Materia' Puede moverla o quitarla según sea necesario.
+            this.materiaTableAdapter.Fill(this.database1DataSet.Materia);
+            // TODO: esta línea de código carga datos en la tabla 'database1DataSet.Pregunta' Puede moverla o quitarla según sea necesario.
+            this.preguntaTableAdapter.Fill(this.database1DataSet.Pregunta);
+            // TODO: esta línea de código carga datos en la tabla 'database1DataSet.Tema' Puede moverla o quitarla según sea necesario.
+            this.temaTableAdapter.Fill(this.database1DataSet.Tema);
             // TODO: esta línea de código carga datos en la tabla 'examenDataSet.Pregunta' Puede moverla o quitarla según sea necesario.
-            this.preguntaTableAdapter.Fill(this.examenDataSet.Pregunta);
+            this.preguntaTableAdapter.Fill(this.database1DataSet.Pregunta);
             // TODO: esta línea de código carga datos en la tabla 'examenDataSet.Tema' Puede moverla o quitarla según sea necesario.
-            this.temaTableAdapter.Fill(this.examenDataSet.Tema);
+            this.temaTableAdapter.Fill(this.database1DataSet.Tema);
             // TODO: esta línea de código carga datos en la tabla 'examenDataSet.Materia' Puede moverla o quitarla según sea necesario.
-            this.materiaTableAdapter.Fill(this.examenDataSet.Materia);
+            this.materiaTableAdapter.Fill(this.database1DataSet.Materia);
 
         }
 

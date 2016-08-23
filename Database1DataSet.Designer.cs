@@ -44,9 +44,9 @@ namespace Examen {
         
         private global::System.Data.DataRelation relationFK_Alumno_Calificacion;
         
-        private global::System.Data.DataRelation relationFK_Grupo_Grupo_Alumno;
-        
         private global::System.Data.DataRelation relationFK_Alumno_Grupo_Alumno;
+        
+        private global::System.Data.DataRelation relationFK_Grupo_Grupo_Alumno;
         
         private global::System.Data.DataRelation relationFK_Materia_Tema;
         
@@ -399,8 +399,8 @@ namespace Examen {
                 }
             }
             this.relationFK_Alumno_Calificacion = this.Relations["FK_Alumno_Calificacion"];
-            this.relationFK_Grupo_Grupo_Alumno = this.Relations["FK_Grupo_Grupo_Alumno"];
             this.relationFK_Alumno_Grupo_Alumno = this.Relations["FK_Alumno_Grupo_Alumno"];
+            this.relationFK_Grupo_Grupo_Alumno = this.Relations["FK_Grupo_Grupo_Alumno"];
             this.relationFK_Materia_Tema = this.Relations["FK_Materia_Tema"];
             this.relationFK_Tema_Pregunta = this.Relations["FK_Tema_Pregunta"];
             this.relationFK_Pregunta_Respuesta = this.Relations["FK_Pregunta_Respuesta"];
@@ -440,13 +440,6 @@ namespace Examen {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Grupo_Grupo_Alumno", new global::System.Data.DataColumn[] {
-                        this.tableGrupo.Id_GrupoColumn}, new global::System.Data.DataColumn[] {
-                        this.tableGrupo_Alumno.Id_GrupoColumn});
-            this.tableGrupo_Alumno.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_Alumno_Grupo_Alumno", new global::System.Data.DataColumn[] {
                         this.tableAlumno.Id_AlColumn}, new global::System.Data.DataColumn[] {
                         this.tableGrupo_Alumno.Id_AlColumn});
@@ -454,9 +447,16 @@ namespace Examen {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Grupo_Grupo_Alumno", new global::System.Data.DataColumn[] {
+                        this.tableGrupo.Id_GrupoColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGrupo_Alumno.Id_GrupoColumn});
+            this.tableGrupo_Alumno.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_Materia_Tema", new global::System.Data.DataColumn[] {
                         this.tableMateria.Id_MatColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTema.Id_MatColumn});
+                        this.tableTema.Id_TemaColumn});
             this.tableTema.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
@@ -479,17 +479,17 @@ namespace Examen {
                         this.tableAlumno.Id_AlColumn}, new global::System.Data.DataColumn[] {
                         this.tableCalificacion.Id_AlColumn}, false);
             this.Relations.Add(this.relationFK_Alumno_Calificacion);
-            this.relationFK_Grupo_Grupo_Alumno = new global::System.Data.DataRelation("FK_Grupo_Grupo_Alumno", new global::System.Data.DataColumn[] {
-                        this.tableGrupo.Id_GrupoColumn}, new global::System.Data.DataColumn[] {
-                        this.tableGrupo_Alumno.Id_GrupoColumn}, false);
-            this.Relations.Add(this.relationFK_Grupo_Grupo_Alumno);
             this.relationFK_Alumno_Grupo_Alumno = new global::System.Data.DataRelation("FK_Alumno_Grupo_Alumno", new global::System.Data.DataColumn[] {
                         this.tableAlumno.Id_AlColumn}, new global::System.Data.DataColumn[] {
                         this.tableGrupo_Alumno.Id_AlColumn}, false);
             this.Relations.Add(this.relationFK_Alumno_Grupo_Alumno);
+            this.relationFK_Grupo_Grupo_Alumno = new global::System.Data.DataRelation("FK_Grupo_Grupo_Alumno", new global::System.Data.DataColumn[] {
+                        this.tableGrupo.Id_GrupoColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGrupo_Alumno.Id_GrupoColumn}, false);
+            this.Relations.Add(this.relationFK_Grupo_Grupo_Alumno);
             this.relationFK_Materia_Tema = new global::System.Data.DataRelation("FK_Materia_Tema", new global::System.Data.DataColumn[] {
                         this.tableMateria.Id_MatColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTema.Id_MatColumn}, false);
+                        this.tableTema.Id_TemaColumn}, false);
             this.Relations.Add(this.relationFK_Materia_Tema);
             this.relationFK_Tema_Pregunta = new global::System.Data.DataRelation("FK_Tema_Pregunta", new global::System.Data.DataColumn[] {
                         this.tableTema.Id_TemaColumn}, new global::System.Data.DataColumn[] {
@@ -2256,16 +2256,13 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TemaRow AddTemaRow(string Unidad, string Nombre, MateriaRow parentMateriaRowByFK_Materia_Tema) {
+            public TemaRow AddTemaRow(string Unidad, string Nombre, int Id_Mat) {
                 TemaRow rowTemaRow = ((TemaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Unidad,
                         Nombre,
-                        null};
-                if ((parentMateriaRowByFK_Materia_Tema != null)) {
-                    columnValuesArray[3] = parentMateriaRowByFK_Materia_Tema[0];
-                }
+                        Id_Mat};
                 rowTemaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTemaRow);
                 return rowTemaRow;
@@ -3609,23 +3606,23 @@ namespace Examen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GrupoRow GrupoRow {
-                get {
-                    return ((GrupoRow)(this.GetParentRow(this.Table.ParentRelations["FK_Grupo_Grupo_Alumno"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Grupo_Grupo_Alumno"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AlumnoRow AlumnoRow {
                 get {
                     return ((AlumnoRow)(this.GetParentRow(this.Table.ParentRelations["FK_Alumno_Grupo_Alumno"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Alumno_Grupo_Alumno"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GrupoRow GrupoRow {
+                get {
+                    return ((GrupoRow)(this.GetParentRow(this.Table.ParentRelations["FK_Grupo_Grupo_Alumno"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Grupo_Grupo_Alumno"]);
                 }
             }
             

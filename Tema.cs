@@ -36,6 +36,8 @@ namespace Examen
 
         private void Tema_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'database1DataSet.Tema' Puede moverla o quitarla según sea necesario.
+            this.temaTableAdapter.Fill(this.database1DataSet.Tema);
             // TODO: esta línea de código carga datos en la tabla 'database1DataSet.Materia' Puede moverla o quitarla según sea necesario.
             this.materiaTableAdapter.Fill(this.database1DataSet.Materia);
             // TODO: esta línea de código carga datos en la tabla 'examenDataSet.Materia' Puede moverla o quitarla según sea necesario.

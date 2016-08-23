@@ -39,8 +39,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.materiaTableAdapter = new Examen.Database1DataSetTableAdapters.MateriaTableAdapter();
             this.cerrarbtn = new System.Windows.Forms.Button();
+            this.materiaTableAdapter = new Examen.Database1DataSetTableAdapters.MateriaTableAdapter();
+            this.temaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.temaTableAdapter = new Examen.Database1DataSetTableAdapters.TemaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materiaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
@@ -48,6 +50,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.temaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -58,7 +61,7 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.dataGridView1.DataSource = this.materiaBindingSource;
+            this.dataGridView1.DataSource = this.temaBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 23);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(452, 150);
@@ -145,10 +148,6 @@
             this.splitContainer1.SplitterDistance = 82;
             this.splitContainer1.TabIndex = 0;
             // 
-            // materiaTableAdapter
-            // 
-            this.materiaTableAdapter.ClearBeforeFill = true;
-            // 
             // cerrarbtn
             // 
             this.cerrarbtn.Location = new System.Drawing.Point(274, 205);
@@ -158,6 +157,19 @@
             this.cerrarbtn.Text = "Cerrar";
             this.cerrarbtn.UseVisualStyleBackColor = true;
             this.cerrarbtn.Click += new System.EventHandler(this.cerrarbtn_Click);
+            // 
+            // materiaTableAdapter
+            // 
+            this.materiaTableAdapter.ClearBeforeFill = true;
+            // 
+            // temaBindingSource
+            // 
+            this.temaBindingSource.DataMember = "Tema";
+            this.temaBindingSource.DataSource = this.database1DataSet;
+            // 
+            // temaTableAdapter
+            // 
+            this.temaTableAdapter.ClearBeforeFill = true;
             // 
             // Tema
             // 
@@ -176,6 +188,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.temaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -198,6 +211,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Button cerrarbtn;
+        private System.Windows.Forms.BindingSource temaBindingSource;
+        private Database1DataSetTableAdapters.TemaTableAdapter temaTableAdapter;
 
     }
 }
