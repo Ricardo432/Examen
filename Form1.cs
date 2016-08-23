@@ -69,6 +69,12 @@ namespace Examen
         {
             Application.Exit();
         }
+
+        private void salirbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
+        }
         
     }
 }

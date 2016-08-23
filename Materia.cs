@@ -26,5 +26,17 @@ namespace Examen
         {
 
         }
+
+        private void Materia_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'database1DataSet.Materia' Puede moverla o quitarla según sea necesario.
+            this.materiaTableAdapter.Fill(this.database1DataSet.Materia);
+
+        }
+
+        private void cerrarbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

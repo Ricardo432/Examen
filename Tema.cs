@@ -42,5 +42,10 @@ namespace Examen
             this.materiaTableAdapter.Fill(this.database1DataSet.Materia);
 
         }
+
+        private void cerrarbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

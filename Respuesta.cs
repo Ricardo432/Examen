@@ -16,5 +16,17 @@ namespace Examen
         {
             InitializeComponent();
         }
+
+        private void Respuesta_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'database1DataSet.Respuesta' Puede moverla o quitarla según sea necesario.
+            this.respuestaTableAdapter.Fill(this.database1DataSet.Respuesta);
+
+        }
+
+        private void cerrarbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

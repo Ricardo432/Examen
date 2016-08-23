@@ -125,10 +125,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(197, 274);
+            this.ClientSize = new System.Drawing.Size(197, 271);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MaximumSize = new System.Drawing.Size(500, 500);
-            this.MinimumSize = new System.Drawing.Size(213, 268);
+            this.MaximumSize = new System.Drawing.Size(213, 310);
+            this.MinimumSize = new System.Drawing.Size(213, 305);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
@@ -138,25 +138,7 @@
 
         }
 
-        private void tema_Click(object sender, System.EventArgs e)
-        {
-            //throw new System.NotImplementedException();
-        }
-
-        private void reactivo_Click(object sender, System.EventArgs e)
-        {
-            //throw new System.NotImplementedException();
-        }
-
-        private void estadistica_Click(object sender, System.EventArgs e)
-        {
-            //throw new System.NotImplementedException();
-        }
-
-        private void curso_Click(object sender, System.EventArgs e)
-        {
-            //throw new System.NotImplementedException();
-        }
+        
 
         #endregion
 
