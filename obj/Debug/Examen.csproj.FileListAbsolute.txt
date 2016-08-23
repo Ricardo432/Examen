@@ -9,8 +9,8 @@ C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Exam
 C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.Principal.resources
 C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.Properties.Resources.resources
 C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.csproj.GenerateResource.Cache
-C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\bin\Debug\Database1.sdf
 C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\bin\Debug\Examen.exe
 C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\bin\Debug\Examen.pdb
 C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.exe
 C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\obj\Debug\Examen.pdb
+C:\Users\AgnosticSix\Documents\Visual Studio 2012\Projects\Examen\bin\Debug\ExamenDB.sdf

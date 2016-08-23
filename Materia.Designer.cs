@@ -37,9 +37,9 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.database1DataSet = new Examen.Database1DataSet();
+            this.database1DataSet = new Examen.ExamenDBDataSet();
             this.button1 = new System.Windows.Forms.Button();
-            this.materiaTableAdapter = new Examen.Database1DataSetTableAdapters.MateriaTableAdapter();
+            this.materiaTableAdapter = new Examen.ExamenDBDataSetTableAdapters.MateriaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -176,9 +176,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOMBREDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn uNIDADESDataGridViewTextBoxColumn;
-        private Database1DataSet database1DataSet;
+        private ExamenDBDataSet database1DataSet;
         private System.Windows.Forms.BindingSource materiaBindingSource;
-        private Database1DataSetTableAdapters.MateriaTableAdapter materiaTableAdapter;
+        private ExamenDBDataSetTableAdapters.MateriaTableAdapter materiaTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idMatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;

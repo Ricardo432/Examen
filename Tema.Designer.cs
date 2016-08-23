@@ -34,15 +34,15 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.database1DataSet = new Examen.Database1DataSet();
+            this.database1DataSet = new Examen.ExamenDBDataSet();
             this.act = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.cerrarbtn = new System.Windows.Forms.Button();
-            this.materiaTableAdapter = new Examen.Database1DataSetTableAdapters.MateriaTableAdapter();
+            this.materiaTableAdapter = new Examen.ExamenDBDataSetTableAdapters.MateriaTableAdapter();
             this.temaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.temaTableAdapter = new Examen.Database1DataSetTableAdapters.TemaTableAdapter();
+            this.temaTableAdapter = new Examen.ExamenDBDataSetTableAdapters.TemaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materiaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
@@ -204,15 +204,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private Database1DataSet database1DataSet;
+        private ExamenDBDataSet database1DataSet;
         private System.Windows.Forms.BindingSource materiaBindingSource;
-        private Database1DataSetTableAdapters.MateriaTableAdapter materiaTableAdapter;
+        private ExamenDBDataSetTableAdapters.MateriaTableAdapter materiaTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Button cerrarbtn;
         private System.Windows.Forms.BindingSource temaBindingSource;
-        private Database1DataSetTableAdapters.TemaTableAdapter temaTableAdapter;
+        private ExamenDBDataSetTableAdapters.TemaTableAdapter temaTableAdapter;
 
     }
 }

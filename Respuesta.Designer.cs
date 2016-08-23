@@ -35,9 +35,9 @@
             this.correctaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.respuestaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.database1DataSet = new Examen.Database1DataSet();
+            this.database1DataSet = new Examen.ExamenDBDataSet();
             this.label1 = new System.Windows.Forms.Label();
-            this.respuestaTableAdapter = new Examen.Database1DataSetTableAdapters.RespuestaTableAdapter();
+            this.respuestaTableAdapter = new Examen.ExamenDBDataSetTableAdapters.RespuestaTableAdapter();
             this.cerrarbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.respuestaBindingSource)).BeginInit();
@@ -143,9 +143,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rESPUESTADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cORRECTADataGridViewCheckBoxColumn;
         private System.Windows.Forms.Label label1;
-        private Database1DataSet database1DataSet;
+        private ExamenDBDataSet database1DataSet;
         private System.Windows.Forms.BindingSource respuestaBindingSource;
-        private Database1DataSetTableAdapters.RespuestaTableAdapter respuestaTableAdapter;
+        private ExamenDBDataSetTableAdapters.RespuestaTableAdapter respuestaTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn correctaDataGridViewTextBoxColumn;
